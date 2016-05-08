@@ -1,5 +1,9 @@
 
 pub struct Vehicle {
+
+  /// Time, in seconds, since this vehicle was created. Note that this
+  /// is not necessarily the same as Simulation::time.
+  
   time: f64
 }
 

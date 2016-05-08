@@ -4,11 +4,16 @@ pub mod world;
 
 pub struct Simulation {
   
-  // Time, in seconds, since simulation start
+  /// Time, in seconds, since simulation start.
   
   pub time: f64,
 
+  /// The main [world](:world.rs).
+
   pub world: world::World,
+  
+  /// List of vehicles
+  
   vehicles: Vec<vehicle::Vehicle>
 }
 

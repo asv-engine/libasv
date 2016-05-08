@@ -1,0 +1,15 @@
+{
+  "files": [
+    "src/**/*.rs",
+    "**/*.md"
+  ],
+  "ignore": [
+    "docs/**/*",
+    "target/**/*"
+  ],
+  "readme": "README.md",
+  "name": "libasv",
+  "output": "docs",
+  "version": "0.0.1",
+  "owners": "ASV Engine contributors"
+}

@@ -22,7 +22,7 @@ pub struct Simulation {
 
 impl Simulation {
 
-  // Create a new `Simulation` with default values.
+  /// Creates a new `Simulation` with default values.
   
   pub fn new() -> Simulation {
     
@@ -34,16 +34,15 @@ impl Simulation {
     
   }
 
-  // # Vehicle management
+  /// # Vehicle management
 
   pub fn push_vehicle(&mut self, vehicle: vehicle::Vehicle) -> () {
     self.vehicles.push(vehicle);
   }
 
-  // # Tick
-  // Step through the simulation by one tick.
-
-  // `self` needs to be mutable because we modify `self.time`.
+  /// # Tick
+  /// Step through the simulation by one tick.
+  /// `self` needs to be mutable because we modify `self.time`.
   
   pub fn tick(&mut self, step: f64) -> () {
     

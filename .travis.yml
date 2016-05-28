@@ -9,7 +9,8 @@ compiler:
 script:
   - mkdir build
   - cd build
-  - cmake -DBUILD_TESTS:BOOL=1 .. && make
+  - cmake -DBUILD_TESTS:BOOL=1 ..
+  - make
   - ./bin/asv-test
 branches:
   only:

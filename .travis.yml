@@ -19,7 +19,7 @@ script:
   - cd build
   - cmake -DBUILD_TESTS:BOOL=1 ..
   - make
-  - ./bin/asv-test
+  - ./bin/asv-tests
 branches:
   only:
   - cc

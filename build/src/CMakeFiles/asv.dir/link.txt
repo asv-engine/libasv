@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libasv.a  CMakeFiles/asv.dir/time.cpp.o CMakeFiles/asv.dir/vehicle.cpp.o CMakeFiles/asv.dir/simulation.cpp.o
+/usr/bin/ranlib ../lib/libasv.a

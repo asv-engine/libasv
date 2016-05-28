@@ -1,11 +1,13 @@
 {
   "files": [
-    "src/**/*.rs",
+    "example/*.cpp",
+    "include/**/*.hpp",
+    "src/**/*.cpp",
     "**/*.md"
   ],
   "ignore": [
-    "docs/**/*",
-    "target/**/*"
+    "build/**/*",
+    "docs/**/*"
   ],
   "readme": "README.md",
   "name": "libasv",

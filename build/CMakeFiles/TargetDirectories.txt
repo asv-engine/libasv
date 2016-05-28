@@ -1,0 +1,8 @@
+/home/zlsa/projects/native/libasv/build/CMakeFiles/edit_cache.dir
+/home/zlsa/projects/native/libasv/build/CMakeFiles/rebuild_cache.dir
+/home/zlsa/projects/native/libasv/build/src/CMakeFiles/edit_cache.dir
+/home/zlsa/projects/native/libasv/build/src/CMakeFiles/rebuild_cache.dir
+/home/zlsa/projects/native/libasv/build/src/CMakeFiles/asv.dir
+/home/zlsa/projects/native/libasv/build/example/CMakeFiles/edit_cache.dir
+/home/zlsa/projects/native/libasv/build/example/CMakeFiles/rebuild_cache.dir
+/home/zlsa/projects/native/libasv/build/example/CMakeFiles/asv-example.dir

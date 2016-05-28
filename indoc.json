@@ -1,6 +1,7 @@
 {
   "files": [
     "example/*.cpp",
+    "test/*.cpp",
     "include/**/*.hpp",
     "src/**/*.cpp",
     "**/*.md"

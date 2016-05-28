@@ -1,1 +1,0 @@
-/usr/bin/c++   -g   CMakeFiles/asv-example.dir/main.cpp.o  -o ../bin/asv-example -rdynamic ../lib/libasv.a 

@@ -23,3 +23,5 @@ script:
 notifications:
   irc: "chat.freenode.net#asv"
       
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

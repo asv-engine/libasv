@@ -5,6 +5,7 @@ dist: trusty
 language: cpp
 
 compiler:
+  - clang
   - gcc
 
 # Build steps

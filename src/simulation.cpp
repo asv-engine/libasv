@@ -53,7 +53,7 @@ Vehicle *Simulation::addVehicle(Vehicle *vehicle) {
 
 bool Simulation::removeVehicle(Vehicle *vehicle) {
   
-  for(std::list<Vehicle*>::const_iterator iterator = vehicles.begin(), end = vehicles.end(); iterator != end; ++iterator) {
+  for(std::list<Vehicle*>::iterator iterator = vehicles.begin(), end = vehicles.end(); iterator != end; ++iterator) {
     
     if(vehicle == *iterator) {
       vehicles.erase(iterator);

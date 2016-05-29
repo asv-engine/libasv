@@ -18,8 +18,6 @@ int main(int argc, char **argv) {
     sim.tick(10.0);
 
     std::cout << "\rSimulation time: " << ASV::timeToString(sim.getTime()) << "    " << std::flush;
-
-    if(sim.getTime() > 1000) sim.removeVehicle(&dumb);
   }
   
   return 0;

@@ -3,6 +3,7 @@ include_directories(../include/)
 
 add_library(asv
   time.cpp
+  component.cpp
   vehicle.cpp
   simulation.cpp
   )

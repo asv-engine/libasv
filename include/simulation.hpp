@@ -4,6 +4,7 @@
 
 #include <list>
 #include "time.hpp"
+#include "world.hpp"
 #include "vehicle.hpp"
 
 namespace ASV {
@@ -16,12 +17,15 @@ class Simulation {
   Simulation();
   ~Simulation();
 
+  void reset();
+  
   void tick();
   void tick(double step);
   double getTime(void);
   long int getTicks(void);
   
-  Vehicle *addVehicle(Vehicle *vehicle);
+  bool hasVehicle(Vehicle *vehicle);
+  bool addVehicle(Vehicle *vehicle);
   bool removeVehicle(Vehicle *vehicle);
     
  private:

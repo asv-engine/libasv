@@ -5,12 +5,16 @@
 namespace ASV {
 
 Simulation::Simulation() {
-  time = 0;
-  ticks = 0;
+  reset();
 }
 
 Simulation::~Simulation() {
 
+}
+
+void Simulation::reset() {
+  time = 0;
+  ticks = 0;
 }
 
 // # Tick
@@ -41,10 +45,24 @@ long int Simulation::getTicks(void) {
 
 // # Vehicles
 
-Vehicle *Simulation::addVehicle(Vehicle *vehicle) {
+// Returns `true` if the vehicle already exists.
+
+bool Simulation::hasVehicle(Vehicle *vehicle) {
+  
+  for(std::list<Vehicle*>::iterator iterator = vehicles.begin(), end = vehicles.end(); iterator != end; ++iterator) {
+    if(vehicle == *iterator) return true;
+  }
+
+  return false;
+}
+
+// Returns `false` if the vehicle is already in the simulation.
+bool Simulation::addVehicle(Vehicle *vehicle) {
+  if(hasVehicle(vehicle)) return false;
+    
   vehicles.push_back(vehicle);
 
-  return vehicle;
+  return true;
 }
 
 // Returns `true` if vehicle existed (and was therefore removed),

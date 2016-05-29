@@ -24,7 +24,6 @@ class Vehicle {
   
   void tick();
   void tick(double step);
-  void tickTo(double step);
   double getTime(void);
   long int getTicks(void);
   
@@ -32,7 +31,7 @@ class Vehicle {
   double time;
   long int ticks;
   
-  std::list<Component*> components;
+  Component root_component;
 };
 
 }

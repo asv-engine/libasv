@@ -7,6 +7,8 @@ add_library(asv
   units.cpp
   
   world.cpp
+
+  value.cpp
   
   component.cpp
   vehicle.cpp

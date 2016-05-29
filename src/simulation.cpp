@@ -4,8 +4,8 @@
 
 namespace ASV {
 
-Simulation::Simulation() {
-  reset();
+Simulation::Simulation() : Ticker() {
+
 }
 
 Simulation::~Simulation() {
@@ -13,38 +13,25 @@ Simulation::~Simulation() {
 }
 
 void Simulation::reset() {
-  time = 0;
-  ticks = 0;
+  Ticker::reset();
+  
   world = NULL;
 }
 
 // # Tick
 
 void Simulation::tick() {
+  Ticker::tick();
+  
   assert(world);
+
+  double simTimestep = 1.0 / ticksPerSecond;
     
-  ticks += 1;
-  time += SimulationTimestep;
-
   for(Vehicle *vehicle : vehicles) {
-    vehicle->tick(SimulationTimestep);
+    vehicle->step(simTimestep);
   }
 
-  world->tick(SimulationTimestep);
-}
-
-void Simulation::tick(double step) {
-  for(; step > 0; step -= SimulationTimestep) {
-    tick();
-  }
-}
-
-double Simulation::getTime(void) {
-  return time;
-}
-
-long int Simulation::getTicks(void) {
-  return ticks;
+  world->step(simTimestep);
 }
 
 // # World

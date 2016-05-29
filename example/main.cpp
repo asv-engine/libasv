@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
   while(true) {
 
     // Tick 10 seconds at a time.
-    sim.tick(10.0);
+    sim.step(10.0);
 
     std::cout << "\rSimulation time: " << ASV::timeToString(sim.getTime()) << "    " << std::flush;
   }

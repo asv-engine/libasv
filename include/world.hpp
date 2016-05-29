@@ -9,11 +9,10 @@ namespace ASV {
 
 class Simulation;
 
-// One tick per second should be perfectly fine
-const double WorldTimestep = 1.0;
-
-class World {
+class World : public Ticker {
   
+  static const int ticksPerSecond = 100;
+
  public:
   World();
   ~World();
@@ -21,14 +20,8 @@ class World {
   void reset();
   
   void tick();
-  void tick(double step);
-  
-  double getTime(void);
-  long int getTicks(void);
   
  private:
-  double time;
-  long int ticks;
 
 };
 

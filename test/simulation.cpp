@@ -21,7 +21,7 @@ SCENARIO("simulations can tick", "[simulation]") {
     }
     
     WHEN("the simulation is stepped through for 10 seconds") {
-      sim.tick(10.0);
+      sim.step(10.0);
 
       THEN("the elapsed time >= 10 seconds") {
         REQUIRE(sim.getTime() >= 10.0);

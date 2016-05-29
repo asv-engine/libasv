@@ -9,7 +9,7 @@ namespace ASV {
 
 class Vehicle;
 
-const int ComponentTimestep = RootTimestep;
+const int ComponentTimestep = 1.0 / 100;
 
 class Component;
 

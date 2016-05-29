@@ -16,10 +16,28 @@ const int SecondsPerDay    = SecondsPerHour * HoursPerDay;
 const int DaysPerYear      = 365;
 const int SecondsPerYear   = SecondsPerDay * DaysPerYear;
 
-// Number of seconds per tick.
-const double RootTimestep = 1.0 / 100;
-
 std::string timeToString(double time);
+
+class Ticker {
+
+  static const int ticksPerSecond = 100;
+  
+ public:
+  Ticker();
+  ~Ticker();
+
+  void reset();
+  
+  void tick();
+  void step(double step);
+  
+  double getTime(void);
+  long int getTicks(void);
+  
+ private:
+  double time;
+  long int ticks;
+};
 
 }
 

@@ -9,9 +9,9 @@
 
 namespace ASV {
 
-const double SimulationTimestep = RootTimestep;
-
-class Simulation {
+class Simulation : public Ticker {
+  
+  static const int ticksPerSecond = 100;
   
  public:
   Simulation();
@@ -20,9 +20,6 @@ class Simulation {
   void reset();
   
   void tick();
-  void tick(double step);
-  double getTime(void);
-  long int getTicks(void);
 
   bool setWorld(World *world);
   
@@ -31,9 +28,6 @@ class Simulation {
   bool removeVehicle(Vehicle *vehicle);
     
  private:
-  double time;
-  long int ticks;
-
   World *world;
   std::list<Vehicle*> vehicles;
 };

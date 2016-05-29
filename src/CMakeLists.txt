@@ -4,6 +4,8 @@ include_directories(../include/)
 add_library(asv
   time.cpp
   
+  units.cpp
+  
   world.cpp
   
   component.cpp

@@ -17,5 +17,9 @@ void Vehicle::tick() {
   Ticker::tick();
 }
 
+Component *Vehicle::getRootComponent() {
+  return &root_component;
+}
+
 }
 

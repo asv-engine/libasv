@@ -19,7 +19,7 @@ void Simulation::tick() {
   ticks += 1;
   time += SimulationTimestep;
 
-  for(auto &vehicle : vehicles) {
+  for(Vehicle *vehicle : vehicles) {
     vehicle->tick(SimulationTimestep);
   }
   

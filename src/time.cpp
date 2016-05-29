@@ -8,6 +8,12 @@
 
 namespace ASV {
 
+// # `timeToString`
+//
+// Converts a time, in seconds, to a string of the form `1y 120d 15h
+// 14m 12s`.  Starting from the left, no component is displayed unless
+// it's non-zero. (Said another way: the first value will never be 0.)
+
 std::string timeToString(double time) {
 
   double seconds = fmod(time, SecondsPerMinute);
@@ -60,27 +66,31 @@ void Ticker::tick() {
   time += 1.0 / ticksPerSecond;
 }
 
-void Ticker::step(double step) {
+void Ticker::step(seconds increment) {
 
-  int theoreticalTickNumber = (time + step) * ticksPerSecond;
+  // The number of ticks we should be at when `time + step` has
+  // elapsed.
+  int totalTickNumber = (time + increment) * ticksPerSecond;
 
-  if(ticks > theoreticalTickNumber) return;
+  if(ticks >= totalTickNumber) return;
   
   // We keep track of in and out times so we don't drift over time.
   float start_time = time;
   
-  while(ticks < theoreticalTickNumber - 1) {
+  while(ticks < totalTickNumber - 1) {
     tick();
   }
   
-  time = start_time + step;
+  time = start_time + increment;
 }
 
-double Ticker::getTime(void) {
+// Returns the time, in seconds, since the start of this Ticker.
+seconds Ticker::getTime(void) {
   return time;
 }
 
-long int Ticker::getTicks(void) {
+// Returns the number of ticks.
+unsigned long int Ticker::getTicks(void) {
   return ticks;
 }
 

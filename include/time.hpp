@@ -18,6 +18,8 @@ const int SecondsPerYear   = SecondsPerDay * DaysPerYear;
 
 std::string timeToString(double time);
 
+typedef double seconds;
+
 class Ticker {
 
   static const int ticksPerSecond = 100;
@@ -29,10 +31,10 @@ class Ticker {
   void reset();
   
   void tick();
-  void step(double step);
+  void step(seconds step);
   
-  double getTime(void);
-  long int getTicks(void);
+  seconds getTime(void);
+  unsigned long int getTicks(void);
   
  private:
   double time;

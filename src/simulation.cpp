@@ -18,14 +18,12 @@ void Simulation::reset() {
   world = NULL;
 }
 
-// # Tick
-
 void Simulation::tick() {
   Ticker::tick();
   
   assert(world);
 
-  double simTimestep = 1.0 / ticksPerSecond;
+  seconds simTimestep = 1.0 / ticksPerSecond;
     
   for(Vehicle *vehicle : vehicles) {
     vehicle->step(simTimestep);

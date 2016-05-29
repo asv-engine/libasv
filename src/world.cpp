@@ -1,36 +1,36 @@
 
 #include <iostream>
 
-#include "vehicle.hpp"
+#include "world.hpp"
 
 namespace ASV {
 
-Vehicle::Vehicle() {
+World::World() {
   reset();
 }
 
-Vehicle::~Vehicle() {
+World::~World() {
 
 }
 
-void Vehicle::reset() {
+void World::reset() {
   time = 0;
   ticks = 0;
 }
 
 // # Tick
 //
-// If called with a double, steps through the vehicle simulation for
+// If called with a double, steps through the world simulation for
 // that many seconds; otherwise, runs a single tick.
 
-void Vehicle::tick() {
+void World::tick() {
   ticks += 1;
-  time += VehicleTimestep;
+  time += WorldTimestep;
 }
 
-void Vehicle::tick(double step) {
+void World::tick(double step) {
 
-  int theoreticalTickNumber = (time + step) / VehicleTimestep;
+  int theoreticalTickNumber = (time + step) / WorldTimestep;
 
   // We don't want to tick if there's not enough time for a tick;
   // otherwise, calling tick(0) would be _guaranteed_ to tick at least
@@ -48,12 +48,25 @@ void Vehicle::tick(double step) {
   time = start_time + step;
 }
 
-double Vehicle::getTime(void) {
+double World::getTime(void) {
   return time;
 }
 
-long int Vehicle::getTicks(void) {
+long int World::getTicks(void) {
   return ticks;
+}
+
+namespace Default {
+
+namespace Worlds {
+
+World *Sol() {
+  World *sol = new World();
+  return sol;
+}
+
+}
+
 }
 
 }

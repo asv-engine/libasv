@@ -1,5 +1,5 @@
 
-#include <iostream>
+#include <cassert>
 #include "simulation.hpp"
 
 namespace ASV {
@@ -15,18 +15,22 @@ Simulation::~Simulation() {
 void Simulation::reset() {
   time = 0;
   ticks = 0;
+  world = NULL;
 }
 
 // # Tick
 
 void Simulation::tick() {
+  assert(world);
+    
   ticks += 1;
   time += SimulationTimestep;
 
   for(Vehicle *vehicle : vehicles) {
     vehicle->tick(SimulationTimestep);
   }
-  
+
+  world->tick(SimulationTimestep);
 }
 
 void Simulation::tick(double step) {
@@ -41,6 +45,17 @@ double Simulation::getTime(void) {
 
 long int Simulation::getTicks(void) {
   return ticks;
+}
+
+// # World
+
+bool Simulation::setWorld(World *world) {
+
+  if(this->world) return false;
+
+  this->world = world;
+  
+  return true;
 }
 
 // # Vehicles

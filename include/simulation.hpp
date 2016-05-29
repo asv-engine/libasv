@@ -23,6 +23,8 @@ class Simulation {
   void tick(double step);
   double getTime(void);
   long int getTicks(void);
+
+  bool setWorld(World *world);
   
   bool hasVehicle(Vehicle *vehicle);
   bool addVehicle(Vehicle *vehicle);
@@ -32,6 +34,7 @@ class Simulation {
   double time;
   long int ticks;
 
+  World *world;
   std::list<Vehicle*> vehicles;
 };
 

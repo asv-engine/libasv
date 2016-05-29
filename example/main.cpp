@@ -10,6 +10,7 @@ int main(int argc, char **argv) {
 
   ASV::Vehicle dumb;
 
+  sim.setWorld(ASV::Default::Worlds::Sol());
   sim.addVehicle(&dumb);
 
   while(true) {

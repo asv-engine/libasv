@@ -6,6 +6,8 @@ SCENARIO("simulations can tick", "[simulation]") {
 
   GIVEN("A simulation object") {
     ASV::Simulation sim;
+    
+    sim.setWorld(ASV::Default::Worlds::Sol());
 
     REQUIRE(sim.getTime() == 0.0);
     REQUIRE(sim.getTicks() == 0);

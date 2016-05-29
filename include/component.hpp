@@ -9,12 +9,12 @@ namespace ASV {
 
 class Vehicle;
 
-const int ComponentTimestep = 1.0 / 100;
-
 class Component;
 
-class Component {
+class Component : public Ticker {
   
+  static const int ticksPerSecond = 100;
+
  public:
   Component();
   ~Component();
@@ -22,18 +22,12 @@ class Component {
   void reset();
   
   void tick();
-  void tick(double step);
-  double getTime(void);
-  long int getTicks(void);
 
   bool hasComponent(Component *component);
   bool addComponent(Component *component);
   bool removeComponent(Component *component);
     
  private:
-  double time;
-  long int ticks;
-  
   std::list<Component*> components;
 };
 

@@ -16,3 +16,6 @@ script:
   - make
   - ./bin/asv-tests
 
+notifications:
+  irc: "chat.freenode.net#asv"
+      

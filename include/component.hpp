@@ -4,7 +4,6 @@
 
 #include <list>
 #include "time.hpp"
-#include "module.hpp"
 
 namespace ASV {
 
@@ -20,8 +19,8 @@ class Component {
   Component();
   ~Component();
 
-  bool tick();
-  bool tick(double step);
+  void tick();
+  void tick(double step);
   double getTime(void);
   long int getTicks(void);
   
@@ -30,8 +29,6 @@ class Component {
   long int ticks;
   
   std::list<Component*> components;
-  
-  std::list<Module*> modules;
   
 };
 

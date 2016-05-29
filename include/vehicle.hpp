@@ -10,7 +10,9 @@ namespace ASV {
 
 class Simulation;
 
-const int VehicleTimestep = RootTimestep;
+// The `Vehicle` is at _worst_ `VehicleTimestep` behind the
+// `Simulation`. It will never be in front.
+const double VehicleTimestep = RootTimestep;
 
 class Vehicle {
   
@@ -18,8 +20,11 @@ class Vehicle {
   Vehicle();
   ~Vehicle();
 
-  bool tick();
-  bool tick(double step);
+  void reset();
+  
+  void tick();
+  void tick(double step);
+  void tickTo(double step);
   double getTime(void);
   long int getTicks(void);
   

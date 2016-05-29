@@ -14,12 +14,12 @@ Component::~Component() {
 
 // # Tick
 
-bool Component::tick() {
+void Component::tick() {
   ticks += 1;
   time += ComponentTimestep;
 }
 
-bool Component::tick(double step) {
+void Component::tick(double step) {
   for(; step > 0; step -= ComponentTimestep) {
     tick();
   }

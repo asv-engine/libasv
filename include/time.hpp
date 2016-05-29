@@ -16,6 +16,7 @@ const int SecondsPerDay    = SecondsPerHour * HoursPerDay;
 const int DaysPerYear      = 365;
 const int SecondsPerYear   = SecondsPerDay * DaysPerYear;
 
+// Number of seconds per tick.
 const double RootTimestep = 1.0 / 100;
 
 std::string timeToString(double time);

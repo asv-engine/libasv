@@ -16,12 +16,13 @@ class Simulation {
   Simulation();
   ~Simulation();
 
-  bool tick();
-  bool tick(double step);
+  void tick();
+  void tick(double step);
   double getTime(void);
   long int getTicks(void);
   
-  bool addVehicle(Vehicle *vehicle);
+  Vehicle *addVehicle(Vehicle *vehicle);
+  bool removeVehicle(Vehicle *vehicle);
     
  private:
   double time;

@@ -38,7 +38,7 @@ class Ticker {
   
  private:
   double time;
-  long int ticks;
+  unsigned long int ticks;
 };
 
 }

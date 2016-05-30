@@ -24,9 +24,6 @@ class Vehicle : public Ticker {
   Component *getRootComponent();
 
  private:
-  double time;
-  long int ticks;
-  
   Component root_component;
 };
 

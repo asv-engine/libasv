@@ -70,7 +70,7 @@ void Ticker::step(seconds increment) {
 
   // The number of ticks we should be at when `time + step` has
   // elapsed.
-  int totalTickNumber = (time + increment) * ticksPerSecond;
+  unsigned long int totalTickNumber = (time + increment) * ticksPerSecond;
 
   if(ticks >= totalTickNumber) return;
   

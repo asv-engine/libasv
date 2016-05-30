@@ -2,6 +2,8 @@
 include_directories(../include/)
 
 add_library(asv
+  util.cpp
+  
   time.cpp
   
   units.cpp
@@ -11,6 +13,10 @@ add_library(asv
   value.cpp
   
   component.cpp
+  
+  components/battery.cpp
+  components/resistor.cpp
+  
   vehicle.cpp
   
   simulation.cpp

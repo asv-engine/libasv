@@ -8,14 +8,41 @@ namespace ASV {
 
 typedef double meters;
 
+typedef double square_meters;
+typedef double cubic_meters;
+
+typedef double kilograms;
+
 typedef double newtons;
+
+typedef double newton_meters;
+
+typedef double volts;
+typedef double amps;
+typedef double amp_hours;
+typedef double ohms;
+typedef double watts;
+
+typedef double kilopascal;
 
 enum Unit {
   METERS,
+  
+  SQUARE_METERS,
+  CUBIC_METERS,
+  
+  KILOGRAM,
+  
   NEWTON,
-  KG,
-  METERS_2,
-  METERS_3
+  NEWTON_METER,
+  
+  VOLTS,
+  AMPS,
+  AMP_HOURS,
+  OHMS,
+  WATTS,
+  
+  KILOPASCALS
 };
 
 }

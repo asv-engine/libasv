@@ -12,11 +12,27 @@ Input::Input() {
   output = NULL;
 }
 
-std::string *Input::getName() {
-  return &name;
+Input::Input(const char *name) : Input() {
+  setName(name);
 }
 
-// ## Outputs
+bool Input::isConnected() {
+  if(value) return true;
+  
+  return false;
+}
+
+// # Output
+
+Output::Output() {
+
+}
+
+Output::Output(const char *name) : Output() {
+  setName(name);
+}
+
+// ## Inputs
 
 Input *Output::getInput(std::string name) {
   
@@ -95,19 +111,16 @@ void Component::tick() {
 
 // ## Components
 
-bool Component::hasComponent(Component *component) {
+Component *Component::getComponent(std::string name) {
   
   for(std::list<Component*>::iterator iterator = components.begin(), end = components.end(); iterator != end; ++iterator) {
-    if(component == *iterator) return true;
+    if((*iterator)->getName()->compare(name) == 0) return *iterator;
   }
 
-  return false;
+  return NULL;
 }
 
-// Returns `false` if the component is already in the component.
 bool Component::addComponent(Component *component) {
-  if(hasComponent(component)) return false;
-    
   components.push_back(component);
 
   return true;
@@ -130,6 +143,87 @@ bool Component::removeComponent(Component *component) {
   }
 
   return false;
+}
+
+// ## Inputs
+
+Input *Component::getInput(std::string name) {
+  
+  for(std::list<Input*>::iterator iterator = inputs.begin(), end = inputs.end(); iterator != end; ++iterator) {
+    if((*iterator)->getName()->compare(name) == 0) return *iterator;
+  }
+
+  return NULL;
+}
+
+// Returns `false` if the input is already in the list.
+bool Component::addInput(Input *input) {
+  inputs.push_back(input);
+
+  return true;
+}
+
+bool Component::removeInput(Input *input) {
+  
+  for(std::list<Input*>::iterator iterator = inputs.begin(), end = inputs.end(); iterator != end; ++iterator) {
+    
+    if(input == *iterator) {
+      inputs.erase(iterator);
+
+      return true;
+    }
+
+  }
+
+  return false;
+}
+
+// Returns `false` if `name` does not refer to an existing input.
+bool Component::removeInput(std::string name) {
+  return removeInput(getInput(name));
+}
+
+// ## Outputs
+
+Output *Component::getOutput(std::string name) {
+  
+  for(std::list<Output*>::iterator iterator = outputs.begin(), end = outputs.end(); iterator != end; ++iterator) {
+    if((*iterator)->getName()->compare(name) == 0) return *iterator;
+  }
+
+  return NULL;
+}
+
+// Returns `false` if the output is already in the list.
+bool Component::addOutput(Output *output) {
+  outputs.push_back(output);
+
+  return true;
+}
+
+bool Component::removeOutput(Output *output) {
+  
+  for(std::list<Output*>::iterator iterator = outputs.begin(), end = outputs.end(); iterator != end; ++iterator) {
+    
+    if(output == *iterator) {
+      outputs.erase(iterator);
+
+      return true;
+    }
+
+  }
+
+  return false;
+}
+
+// Returns `false` if `name` does not refer to an existing output.
+bool Component::removeOutput(std::string name) {
+  return removeOutput(getOutput(name));
+}
+
+bool Component::connect(Output *output, Input *input) {
+  input->value = &(output->value);
+  output->addInput(input);
 }
 
 }

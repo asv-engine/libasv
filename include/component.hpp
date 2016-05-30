@@ -5,8 +5,9 @@
 #include <string>
 #include <list>
 
-#include "units.hpp"
+#include "util.hpp"
 #include "time.hpp"
+#include "units.hpp"
 #include "value.hpp"
 
 namespace ASV {
@@ -16,25 +17,28 @@ class Vehicle;
 class Component;
 class Output;
 
-class Input {
+// # Input
+
+class Input : public HasName {
 
  public:
   Input();
+  Input(const char *name);
 
-  std::string *getName();
+  bool isConnected();
 
- private:
-  std::string name;
-  
   Value *value;
   Output *output;
 
 };
 
-class Output {
+// # Output
+
+class Output : public HasName {
 
  public:
   Output();
+  Output(const char *name);
 
   Input *getInput(std::string name);
   
@@ -46,17 +50,16 @@ class Output {
   bool removeInput(Input *input);
   bool removeInput(std::string name);
   
- private:
-  std::string name;
-  
-  Value *value;
+  Value value;
   std::list<Input*> inputs;
   
 };
 
-class Component : public Ticker {
+// # Component
+
+class Component : public Ticker, public HasName {
   
-  static const int ticksPerSecond = 100;
+  static const int ticksPerSecond = 10;
 
  public:
   Component();
@@ -66,18 +69,31 @@ class Component : public Ticker {
   
   void tick();
 
-  bool hasComponent(Component *component);
+  Component *getComponent(std::string name);
   bool addComponent(Component *component);
   bool removeComponent(Component *component);
+
+  
   
   bool hasInput(std::string name);
   bool addInput(Input *input);
-  bool getInput(std::string name);
+  Input *getInput(std::string name);
   
-  bool removeInput(Value *value);
+  bool removeInput(Input *input);
   bool removeInput(std::string name);
+
+  
     
- private:
+  bool hasOutput(std::string name);
+  bool addOutput(Output *output);
+  Output *getOutput(std::string name);
+  
+  bool removeOutput(Output *output);
+  bool removeOutput(std::string name);
+
+  bool connect(Output *output, Input *input);
+    
+ protected:
   std::list<Component*> components;
   
   std::list<Input*> inputs;

@@ -23,8 +23,8 @@ void Value::setName(const char *name) {
   this->name.assign(name);
 }
 
-std::string Value::getName() {
-  return this->name;
+std::string *Value::getName() {
+  return &name;
 }
 
 // # Type

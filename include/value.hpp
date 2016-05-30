@@ -22,7 +22,7 @@ class Value {
 
   void setName(std::string name);
   void setName(const char *name);
-  std::string getName();
+  std::string *getName();
   
   Type getType();
   bool isType(Type type);

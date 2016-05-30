@@ -7,7 +7,7 @@ SCENARIO("values can be created", "[value]") {
   GIVEN("A value") {
     ASV::Value v;
 
-    REQUIRE(v.getName().compare("") == 0);
+    REQUIRE(v.getName()->compare("") == 0);
     REQUIRE(v.getValueInt() == 0);
 
     WHEN("the value is set to 42") {
@@ -48,7 +48,7 @@ SCENARIO("values can be created", "[value]") {
       v.setName("Foobar");
 
       THEN("the the name is \"Foobar\"") {
-        REQUIRE(v.getName().compare("Foobar") == 0);
+        REQUIRE(v.getName()->compare("Foobar") == 0);
       }
     }
     
